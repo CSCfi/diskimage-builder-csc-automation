@@ -1,0 +1,6 @@
+# crontab
+SHELL=/bin/bash
+
+# m h  dom mon dow   command
+0 2 1,16 * *       : CentOS-7    ; source $HOME/scripts/openrc.sh; $HOME/scripts/image_create_centos7.sh
+0 4 1,16 * *       : Ubuntu 14.04; source $HOME/scripts/openrc.sh; $HOME/scripts/image_create_ubuntu-14.04.sh
