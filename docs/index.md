@@ -92,6 +92,21 @@ cd diskimage-builder
 pip install --user -r requirements.txt && python setup.py install --user
 ```
 
+Add binaries path to *PATH* environment in .bash_profile:
+
+```bash
+PATH=$PATH:$HOME/bin:~/.local/bin
+export PATH
+```
+
+Create temporary directory in the dedicated users home directory.
+This directory will be passed as *TMP_DIR* environment variable.
+Otherwise Diskimage-Builder will use */tmp* for image preparation.
+
+```bash
+mkdir temp
+```
+
 
 ## Image Creation
 
