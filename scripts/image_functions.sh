@@ -1,24 +1,3 @@
-#!/bin/bash --login
-# Create cloud image, push it to OpenStack and create test instance
-DIB_LOCAL_IMAGE=""
-DIB_OPTIONS="--no-tmpfs --qemu-img-options compat=0.10"
-IMAGE_NAME="CentOS-7.0"
-IMAGE_SIZE="10"
-IMAGE_FORMAT="qcow2"
-IMAGE_IS_PUBLIC="True"
-IMAGE_KEEP_COUNT="5"
-TMP_IMAGE_NAME="_tmp_$IMAGE_NAME"
-TEST_INSTANCE_NAME="_test_$IMAGE_NAME"
-TEST_FLAVOR="tiny"
-TEST_NET_ID="63b53b45-3e3f-454c-8a27-d1bfae422c11"
-TEST_FIP="192.168.99.99"
-TEST_PING_COUNT="5"
-TEST_PING_INTERVAL="5"
-ELEMENTS="vm cloud-init-cfg centos7"
-PACKAGES="vim,ntp,deltarpm"
-
-#export DIB_LOCAL_IMAGE
-
 function cleanup() {
 	rm -rf ${IMAGE_NAME}.*
 	# delete any orphaned temporary images
@@ -35,7 +14,7 @@ function cleanup() {
 
 function image_create() {
 	# create cloud image with diskimage-builder
-	disk-image-create $DIB_OPTIONS -o "$IMAGE_NAME" \
+	TMP_DIR=~/temp disk-image-create $DIB_OPTIONS -o "$IMAGE_NAME" \
 	--image-size $IMAGE_SIZE -p $PACKAGES $ELEMENTS
 }
 
@@ -48,11 +27,18 @@ function image_test() {
 	echo "Creating test instance $TEST_INSTANCE_NAME"
 	# create new test instance
 	nova boot --flavor $TEST_FLAVOR --image "$TMP_IMAGE_NAME" \
-	--nic net-id=$TEST_NET_ID --poll "$TEST_INSTANCE_NAME"
+	--nic net-id=$TEST_NET_ID --security-groups=$SECURITY_GROUPS --poll "$TEST_INSTANCE_NAME" \
+        --key-name $TEST_KEY_NAME
 	echo "Assigning floating IP $TEST_FIP to $TEST_INSTANCE_NAME"
 	# assign floating IP to test instance
 	nova floating-ip-associate "$TEST_INSTANCE_NAME" $TEST_FIP
 	ping -qA -c$TEST_PING_COUNT -i$TEST_PING_INTERVAL $TEST_FIP
+
+	if [ "$(type -t image_test_extra)" = function ]
+	then
+		# Entry point for extra image verification
+		image_test_extra
+	fi
 }
 
 function image_deploy() {
@@ -62,8 +48,14 @@ function image_deploy() {
 	images=${images:-}
 
 	for image in ${images[@]}; do
+		IMG_NAME=`glance image-show $image | grep name | awk '{ print $4 }'`
 		echo "Setting non-public: $image"
+		if [[ $IMG_NAME != *"{DEPRECATED}-"* ]]
+                then
+			glance image-update --is-public False "$image" --name "{DEPRECATED}-$IMG_NAME"
+		else
 			glance image-update --is-public False "$image"
+		fi
 	done
 	# rename new image
 	glance image-update --name "$IMAGE_NAME" \
@@ -73,7 +65,7 @@ function image_deploy() {
 
 function delete_old_image_versions() {
 	images=($(glance image-list --sort-key created_at --sort-dir desc \
-	--owner "$OS_TENANT_ID" --name "$IMAGE_NAME" | grep "$IMAGE_NAME" \
+	--owner "$OS_TENANT_ID" --name "{DEPRECATED}-$IMAGE_NAME" | grep "$IMAGE_NAME" \
 	| awk -F'|' '{print $2}'))
 	images=${images:-}
 
@@ -82,12 +74,3 @@ function delete_old_image_versions() {
 		glance image-delete $delete
 	done
 }
-
-set -eu
-trap cleanup ERR EXIT
-
-image_create
-image_test
-image_deploy
-delete_old_image_versions
-
