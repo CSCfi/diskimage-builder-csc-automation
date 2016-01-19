@@ -1,6 +1,6 @@
 DIB_RELEASE="jessie"
 IMAGE_NAME="Debian-jessie-server-amd64"
-CLOUD_INIT_DEFAULT_USER_NAME="debian"
+CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"
 ELEMENTS="vm cloud-init-cfg debian"
 PACKAGES="vim,ntp"
 

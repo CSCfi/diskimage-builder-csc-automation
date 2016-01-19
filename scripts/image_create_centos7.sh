@@ -1,5 +1,5 @@
-IMAGE_NAME="CentOS-7-server-x86_64"
-CLOUD_INIT_DEFAULT_USER_NAME="centos"
+IMAGE_NAME="CentOS-7.0"
+CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"
 ELEMENTS="vm cloud-init-cfg centos7"
 PACKAGES="vim,ntp,deltarpm"
 
