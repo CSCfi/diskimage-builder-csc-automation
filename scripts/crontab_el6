@@ -1,6 +1,0 @@
-# crontab
-SHELL=/bin/bash
-
-# m h  dom mon dow   command
-0 0 1,16 * *       : CentOS-6    ; source $HOME/scripts/openrc.sh; $HOME/scripts/image_create_centos6.sh
-0 1 1,16 * *       : Scientific-6; source $HOME/scripts/openrc.sh; $HOME/scripts/image_create_scientific6.sh
