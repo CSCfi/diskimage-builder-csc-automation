@@ -1,8 +1,8 @@
 #!/bin/bash --login
 # Create cloud image, push it to OpenStack and create test instance
 
-. image_constants.sh
-. image_functions.sh
+source $(dirname $0)/image_constants.sh
+source $(dirname $0)/image_functions.sh
 
 set -eu
 trap cleanup ERR EXIT
