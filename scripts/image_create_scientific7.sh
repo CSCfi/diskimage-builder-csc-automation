@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 IMAGE_NAME="ScientificLinux-7.0"
 CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"
 ELEMENTS="vm cloud-init-cfg scientific7"

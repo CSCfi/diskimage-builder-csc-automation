@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 DIB_RELEASE="vivid"
 IMAGE_NAME="Ubuntu-15.04"
 CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"

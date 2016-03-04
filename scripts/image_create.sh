@@ -1,4 +1,4 @@
-#!/bin/bash --login
+#!/bin/bash
 # Create cloud image, push it to OpenStack and create test instance
 
 source $(dirname $0)/image_constants.sh

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 DIB_RELEASE="trusty"
 IMAGE_NAME="Ubuntu-14.04"
 CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"

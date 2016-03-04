@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function cleanup() {
 	rm -rf ${IMAGE_NAME}.*
 	# delete any orphaned temporary images
