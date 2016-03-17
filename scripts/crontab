@@ -1,13 +1,25 @@
 # crontab
 SHELL=/bin/bash
 
+######## cPouta production
 # m h  dom mon dow   command
-0 1 1,16 * *       : CentOS-6    ; source $HOME/scripts/openrc.sh; $HOME/diskimage-builder-scripts/scripts/image_create_centos6.sh
-0 2 1,16 * *       : Scientific-6; source $HOME/scripts/openrc.sh; $HOME/diskimage-builder-scripts/scripts/image_create_scientific6.sh
+0 1 1,16 * *       : CentOS-6    ; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos6.sh
+0 2 1,16 * *       : Scientific-6; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific6.sh
 
-0 3 1,16 * *       : CentOS-7    ; source $HOME/scripts/openrc.sh; $HOME/diskimage-builder-scripts/scripts/image_create_centos7.sh
-0 4 1,16 * *       : Scientific-7; source $HOME/scripts/openrc.sh; $HOME/diskimage-builder-scripts/scripts/image_create_scientific7.sh
+0 3 1,16 * *       : CentOS-7    ; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh
+0 4 1,16 * *       : Scientific-7; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific7.sh
 
-0 5 1,16 * *       : Ubuntu 14.04; source $HOME/scripts/openrc.sh; $HOME/diskimage-builder-scripts/scripts/image_create_ubuntu-14.04.sh
-0 6 1,16 * *       : Ubuntu 15.04; source $HOME/scripts/openrc.sh; $HOME/diskimage-builder-scripts/scripts/image_create_ubuntu-15.04.sh
+0 5 1,16 * *       : Ubuntu 14.04; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-14.04.sh
+0 6 1,16 * *       : Ubuntu 15.10; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-15.10.sh
+
+######## ePouta production
+# m h  dom mon dow   command
+0 1 2,17 * *       : CentOS-6    ; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos6.sh
+0 2 2,17 * *       : Scientific-6; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_scientific6.sh
+
+0 3 2,17 * *       : CentOS-7    ; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7.sh
+0 4 2,17 * *       : Scientific-7; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_scientific7.sh
+
+0 5 2,17 * *       : Ubuntu 14.04; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-14.04.sh
+0 6 2,17 * *       : Ubuntu 15.10; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-15.10.sh
 
