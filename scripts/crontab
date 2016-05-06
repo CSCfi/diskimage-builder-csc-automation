@@ -11,6 +11,7 @@ SHELL=/bin/bash
 
 0 5 1,16 * *       : Ubuntu 14.04; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-14.04.sh
 0 6 1,16 * *       : Ubuntu 15.10; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-15.10.sh
+0 7 1,16 * *       : Ubuntu 16.04; source $HOME/bin/openrc_cpouta_prod.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-16.04.sh
 
 ######## ePouta production
 # m h  dom mon dow   command
@@ -22,4 +23,4 @@ SHELL=/bin/bash
 
 0 5 2,17 * *       : Ubuntu 14.04; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-14.04.sh
 0 6 2,17 * *       : Ubuntu 15.10; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-15.10.sh
-
+0 7 2,17 * *       : Ubuntu 16.04; source $HOME/bin/openrc_epouta_prod.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-16.04.sh
