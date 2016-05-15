@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function cleanup() {
-	rm -rf ${IMAGE_NAME}.*
+	find . -name "${IMAGE_NAME}" -type d -exec rm -rf '{}' \;
 	# delete any orphaned temporary images
 	for id in $(glance image-list | grep "$TMP_IMAGE_NAME" | awk '{print $2}')
 	do
