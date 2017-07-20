@@ -38,7 +38,7 @@ function image_test() {
 
 function image_deploy() {
         # set older versions non-public
-        images=($(glance image-list --owner "$OS_USERNAME" --property name="$IMAGE_NAME" \
+        images=($(glance image-list --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME" \
         | grep "$IMAGE_NAME" | awk -F'|' '{print $2}'))
         images=${images:-}
 
@@ -54,7 +54,7 @@ function image_deploy() {
 
 function delete_old_image_versions() {
         images=($(glance image-list --sort-key created_at --sort-dir desc \
-        --owner "$OS_USERNAME" --property name="$IMAGE_NAME" | grep "$IMAGE_NAME" \
+        --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME" | grep "$IMAGE_NAME" \
         | awk -F'|' '{print $2}'))
         images=${images:-}
 
