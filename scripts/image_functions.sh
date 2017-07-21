@@ -3,7 +3,7 @@
 function cleanup() {
 	find . -name "${IMAGE_NAME}" -type d -exec rm -rf '{}' \;
 	# delete any orphaned temporary images
-	for id in $(PYTHONIOENCODING=utf-8 glance image-list | grep "$TMP_IMAGE_NAME" | awk '{print $2}')
+	for id in $("$ENC_PREFIX" glance image-list | grep "$TMP_IMAGE_NAME" | awk '{print $2}')
 	do
 		glance image-delete $id &>/dev/null || true
 	done
@@ -38,7 +38,7 @@ function image_test() {
 
 function image_deploy() {
         # set older versions non-public
-        images=($(PYTHONIOENCODING=utf-8 glance image-list --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME" \
+        images=($("$ENC_PREFIX" glance image-list --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME" \
         | grep "$IMAGE_NAME" | awk -F'|' '{print $2}'))
         images=${images:-}
 
@@ -49,11 +49,11 @@ function image_deploy() {
         # rename new image
         glance image-update --name "$IMAGE_NAME" \
         --property description="All packages of this image were updated on $(date +%F)" \
-        --visibility $IMAGE_VISIBILITY $(PYTHONIOENCODING=utf-8 glance image-list | grep "$TMP_IMAGE_NAME" | cut -d '|' -f2)
+        --visibility $IMAGE_VISIBILITY $("$ENC_PREFIX" glance image-list | grep "$TMP_IMAGE_NAME" | cut -d '|' -f2)
 }
 
 function delete_old_image_versions() {
-        images=($(PYTHONIOENCODING=utf-8 glance image-list --sort-key created_at --sort-dir desc \
+        images=($("$ENC_PREFIX" glance image-list --sort-key created_at --sort-dir desc \
         --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME" | grep "$IMAGE_NAME" \
         | awk -F'|' '{print $2}'))
         images=${images:-}
