@@ -1,4 +1,5 @@
 #!/bin/bash
+export ENC_PREFIX
 
 function cleanup() {
 	find . -name "${IMAGE_NAME}" -type d -exec rm -rf '{}' \;
