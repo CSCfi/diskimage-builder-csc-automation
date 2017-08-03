@@ -3,22 +3,23 @@ SHELL=/bin/bash
 
 ######## cPouta production
 # m h  dom mon dow   command
-0 1 1,16 * *       : CentOS-6    ; source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos6.sh
-0 2 1,16 * *       : Scientific-6; source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific6.sh
+0 1 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos6.sh > $HOME/log/c/centos6.log 2>&1
+0 2 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific6.sh > $HOME/log/c/scientific6.log 2>&1
 
-0 3 1,16 * *       : CentOS-7    ; source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh
-0 4 1,16 * *       : Scientific-7; source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific7.sh
+0 3 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh > $HOME/log/c/centos7.log 2>&1
+0 4 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific7.sh > $HOME/log/c/scientific7.log 2>&1
 
-0 5 1,16 * *       : Ubuntu 14.04; source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-14.04.sh
-0 7 1,16 * *       : Ubuntu 16.04; source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-16.04.sh
+0 5 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-14.04.sh > $HOME/log/c/ubuntu-14.04.sh 2>&1
+0 6 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-16.04.sh > $HOME/log/c/ubuntu-16.04.sh 2>&1
+
 
 ######## ePouta production
 # m h  dom mon dow   command
-0 1 2,17 * *       : CentOS-6    ; source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos6.sh
-0 2 2,17 * *       : Scientific-6; source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_scientific6.sh
+0 1 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos6.sh > $HOME/log/e/centos6.log 2>&1
+0 2 3,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_scientific6.sh > $HOME/log/e/scientific6.log 2>&1
 
-0 3 2,17 * *       : CentOS-7    ; source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7.sh
-0 4 2,17 * *       : Scientific-7; source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_scientific7.sh
+0 3 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7.sh > $HOME/log/e/centos7.log 2>&1
+0 4 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_scientific7.sh > $HOME/log/e/scientific7.log 2>&1
 
-0 5 2,17 * *       : Ubuntu 14.04; source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-14.04.sh
-0 7 2,17 * *       : Ubuntu 16.04; source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-16.04.sh
+0 5 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-14.04.sh > $HOME/log/e/ubuntu-14.04.sh 2>&1
+0 6 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-16.04.sh > $HOME/log/e/ubuntu-16.04.sh 2>&1
