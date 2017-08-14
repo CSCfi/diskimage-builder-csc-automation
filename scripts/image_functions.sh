@@ -22,6 +22,10 @@ function image_create() {
 	    --image-size "$IMAGE_SIZE" -p "$PACKAGES" $ELEMENTS
 }
 
+function image_download() {
+    curl -LOJ "$1"
+}
+
 function image_test() {
     echo "Creating test image $TMP_IMAGE_NAME"
     # create new temporary image
