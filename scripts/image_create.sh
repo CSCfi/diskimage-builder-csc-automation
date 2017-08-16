@@ -1,6 +1,8 @@
 #!/bin/bash
 # Create cloud image, push it to OpenStack and create test instance
 
+echo "=== "$(date)
+
 source $(dirname $0)/image_constants.sh
 source $(dirname $0)/image_functions.sh
 
