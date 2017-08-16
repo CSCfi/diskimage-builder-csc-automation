@@ -1,5 +1,5 @@
 #!/bin/bash --login
-IMAGE_NAME="ScientificLinux-6.6"
+IMAGE_NAME="ScientificLinux-6"
 CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"
 ELEMENTS="vm cloud-init-cfg scientific6"
 PACKAGES="vim,ntp,deltarpm"
