@@ -1,9 +1,7 @@
-#!/bin/bash
+#!/bin/bash --login
 REL_VERSION=$(curl -Ls https://download.fedoraproject.org/pub/alt/atomic/stable/ |grep -Eo 'Fedora-Atomic-25-[0-9\.]*'|sort -r|head -1)
-TMP_IMAGE_NAME="$REL_VERSION"
-IMAGE_NAME="$REL_VERSION.x86_64"
-IMAGE_FORMAT="qcow2"
-DOWNLOAD_URL="https://download.fedoraproject.org/pub/alt/atomic/stable/$REL_VERSION/CloudImages/x86_64/images/$IMAGE_NAME.$IMAGE_FORMAT"
-OS_DISTRO_PROPERTY="fedora-atomic"
+DOWNLOAD_URL="https://download.fedoraproject.org/pub/alt/atomic/stable/$REL_VERSION/CloudImages/x86_64/images/$REL_VERSION.x86_64.qcow2"
+IMAGE_NAME="Fedora-Atomic-25"
 
-source $(dirname $0)/image_dl_test_deploy.sh "$DOWNLOAD_URL"
+source $(dirname $0)/image_dl_ul.sh "$DOWNLOAD_URL"
+

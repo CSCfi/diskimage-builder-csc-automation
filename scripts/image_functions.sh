@@ -23,7 +23,7 @@ function image_create() {
 }
 
 function image_download() {
-    curl -LOJ "$1"
+    curl -L -o ${IMAGE_NAME}.qcow2 "$1"
 }
 
 function image_test() {
