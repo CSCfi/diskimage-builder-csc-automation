@@ -31,7 +31,8 @@ function image_test() {
     # create new temporary image
     glance image-create --name "$TMP_IMAGE_NAME" --container-format bare \
         --disk-format "$IMAGE_FORMAT" --visibility private --progress \
-        --file "${IMAGE_NAME}.${IMAGE_FORMAT}"
+        --file "${IMAGE_NAME}.${IMAGE_FORMAT}" \
+        --property os_distro="$OS_DISTRO_PROPERTY"
     echo "Creating test instance $TEST_INSTANCE_NAME"
     # create new test instance
     nova boot --flavor "$TEST_FLAVOR" --image "$TMP_IMAGE_NAME"\
