@@ -3,7 +3,7 @@ SHELL=/bin/bash
 
 ######## cPouta production
 # m h  dom mon dow   command
-0 1 1,16 * * $(echo "===" $(date); source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos6.sh) >> $HOME/log/c/centos6.log 2>&1
+0 1 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos6.sh >> $HOME/log/c/centos6.log 2>&1
 0 2 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific6.sh >> $HOME/log/c/scientific6.log 2>&1
 
 0 3 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh >> $HOME/log/c/centos7.log 2>&1
