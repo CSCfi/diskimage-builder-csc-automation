@@ -7,10 +7,12 @@ SHELL=/bin/bash
 0 2 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific6.sh >> $HOME/log/c/scientific6.log 2>&1
 
 0 3 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh >> $HOME/log/c/centos7.log 2>&1
-0 4 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific7.sh >> $HOME/log/c/scientific7.log 2>&1
+0 4 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7-gpu.sh >> $HOME/log/c/centos7-gpu.log 2>&1
+0 5 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_scientific7.sh >> $HOME/log/c/scientific7.log 2>&1
 
-0 5 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-14.04.sh >> $HOME/log/c/ubuntu-14.04.log 2>&1
-0 6 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-16.04.sh >> $HOME/log/c/ubuntu-16.04.log 2>&1
+0 6 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-14.04.sh >> $HOME/log/c/ubuntu-14.04.log 2>&1
+0 7 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-16.04.sh >> $HOME/log/c/ubuntu-16.04.log 2>&1
+0 8 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-16.04-gpu.sh >> $HOME/log/c/ubuntu-16.04-gpu.log 2>&1
 
 
 ######## ePouta production
