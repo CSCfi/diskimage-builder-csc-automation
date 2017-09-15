@@ -3,7 +3,12 @@
 
 echo "=== "$(date)
 
-source $(dirname $0)/image_constants.sh
+if [[ $(dirname $0) =~ scripts.cpouta/scripts$ ]] ; then
+    source $(dirname $0)/image_cpouta_constants.sh
+else
+    source $(dirname $0)/image_epouta_constants.sh
+fi
+
 source $(dirname $0)/image_functions.sh
 
 set -eu
