@@ -3,6 +3,7 @@ IMAGE_NAME="ScientificLinux-6"
 CLOUD_INIT_DEFAULT_USER_NAME="cloud-user"
 ELEMENTS="vm cloud-init-cfg scientific6"
 PACKAGES="vim,ntp,deltarpm"
+IMAGE_VISIBILITY="public"
 
 export CLOUD_INIT_DEFAULT_USER_NAME
 
