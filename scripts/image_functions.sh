@@ -29,6 +29,9 @@ function image_download() {
 function image_test() {
     echo "Creating test image $TMP_IMAGE_NAME"
     # create new temporary image
+    if [ -z "${OS_DISTRO_PROPERTY:-}" ]; then
+        OS_DISTRO_PROPERTY=""
+    fi
     glance image-create --name "$TMP_IMAGE_NAME" --container-format bare \
         --disk-format "$IMAGE_FORMAT" --visibility private --progress \
         --file "${IMAGE_NAME}.${IMAGE_FORMAT}" \
