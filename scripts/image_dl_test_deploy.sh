@@ -11,4 +11,3 @@ image_download "$1"
 image_test
 image_deploy
 delete_old_image_versions
-#FIXME delete_old_image_versions doesn't catch .qcow2?
