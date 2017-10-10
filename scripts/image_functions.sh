@@ -22,12 +22,20 @@ function image_create() {
 	    --image-size "$IMAGE_SIZE" -p "$PACKAGES" $ELEMENTS
 }
 
+function image_download() {
+    curl -L -o ${IMAGE_NAME}.qcow2 "$1"
+}
+
 function image_test() {
     echo "Creating test image $TMP_IMAGE_NAME"
     # create new temporary image
+    if [ -z "${OS_DISTRO_PROPERTY:-}" ]; then
+        OS_DISTRO_PROPERTY=""
+    fi
     glance image-create --name "$TMP_IMAGE_NAME" --container-format bare \
         --disk-format "$IMAGE_FORMAT" --visibility private --progress \
-        --file "${IMAGE_NAME}.${IMAGE_FORMAT}"
+        --file "${IMAGE_NAME}.${IMAGE_FORMAT}" \
+        --property os_distro="$OS_DISTRO_PROPERTY"
     echo "Creating test instance $TEST_INSTANCE_NAME"
     # create new test instance
     nova boot --flavor "$TEST_FLAVOR" --image "$TMP_IMAGE_NAME"\
