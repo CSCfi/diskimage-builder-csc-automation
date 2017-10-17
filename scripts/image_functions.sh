@@ -1,19 +1,23 @@
-#!/bin/bash
+#!/bin/bash -lv
 export PYTHONIOENCODING
 
 function cleanup() {
-	find . -name "${IMAGE_NAME}*.d" -type d -exec rm -rf {} + 2>/dev/null
-    find . -name "${IMAGE_NAME}*.qcow2" -type f -exec rm -f {} + 2>/dev/null
-	# delete any orphaned temporary images using image_id
-	for id in $(glance image-list | grep "$TMP_IMAGE_NAME" | awk '{print $2}')
-	do
-		glance image-delete "$id" &>/dev/null || true
-	done
-	# delete any orphaned test instance using instance_id
-	for id in $(nova list | grep "$TEST_INSTANCE_NAME" | awk '{print $2}')
-	do
-		nova delete "$id" &>/dev/null || true
-	done
+    echo "Deleting ${IMAGE_NAME}*.d folders"
+    find . -maxdepth 5 -name "${IMAGE_NAME}*.d" -type d -exec rm -rf {} +
+    echo "Deleting ${IMAGE_NAME}*.qcow2 files"
+    find . -maxdepth 5 -name "${IMAGE_NAME}*.qcow2" -type f -exec rm -f {} +
+    # delete any orphaned temporary images using image_id
+    echo "Deleting old images from OS"
+    for id in $(glance image-list | grep "$TMP_IMAGE_NAME" | awk '{print $2}')
+    do
+        glance image-delete "$id" &>/dev/null || true
+    done
+    # delete any orphaned test instance using instance_id
+    echo "Deleting orphaned test instance using instance_id"
+    for id in $(nova list | grep "$TEST_INSTANCE_NAME" | awk '{print $2}')
+    do
+        nova delete "$id" &>/dev/null || true
+    done
 }
 
 function image_create() {

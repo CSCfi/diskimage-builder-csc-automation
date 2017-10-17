@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -lv
 # Create cloud image, push it to OpenStack and create test instance
 
 echo "=== "$(date)
