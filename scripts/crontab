@@ -26,3 +26,6 @@ SHELL=/bin/bash
 
 0 5 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-14.04.sh >> $HOME/log/e/ubuntu-14.04.log 2>&1
 0 6 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-16.04.sh >> $HOME/log/e/ubuntu-16.04.log 2>&1
+
+0 7 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7-cuda.sh >> $HOME/log/e/centos7-cuda.log 2>&1
+0 8 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-16.04-cuda.sh >> $HOME/log/e/ubuntu-16.04-cuda.log 2>&1
