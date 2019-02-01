@@ -1,12 +1,19 @@
 #!/bin/bash -lv
 # Create cloud image, push it to OpenStack and create test instance
 
-echo "=== "$(date)
+echo "=== "$(date):u
 
-if [[ $(dirname $0) =~ scripts.cpouta/scripts$ ]] ; then
-    source $(dirname $0)/image_cpouta_constants.sh
+# Expiting the file location to be:
+# /SOME/PATH/diskimage-builder-scripts.${openstack_environment}/image_${openstack_environment}_constants.sh
+openstack_environment="$( echo $(dirname $0) | sed 's/^.*diskimage-builder-scripts\.//g' |cut -d '/' -f 1)"
+echo $openstack_environment
+source_file="$(dirname $0)/image_${openstack_environment}_constants.sh"
+if [ -f $source_file ]; then
+  echo "Using source file: ${source_file}"
+  source $source_file
 else
-    source $(dirname $0)/image_epouta_constants.sh
+  echo $source_file does not exist
+  exit 34
 fi
 
 source $(dirname $0)/image_functions.sh
