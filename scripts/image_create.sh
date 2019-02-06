@@ -1,7 +1,7 @@
 #!/bin/bash -lv
 # Create cloud image, push it to OpenStack and create test instance
 
-echo "=== "$(date):u
+echo "=== "$(date)
 
 # Expiting the file location to be:
 # /SOME/PATH/diskimage-builder-scripts.${openstack_environment}/image_${openstack_environment}_constants.sh
