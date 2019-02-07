@@ -3,7 +3,7 @@
 
 echo "=== "$(date)
 
-# Expiting the file location to be:
+# Expecting the file location to be:
 # /SOME/PATH/diskimage-builder-scripts.${openstack_environment}/image_${openstack_environment}_constants.sh
 openstack_environment="$( echo $(dirname $0) | sed 's/^.*diskimage-builder-scripts\.//g' |cut -d '/' -f 1)"
 echo $openstack_environment
