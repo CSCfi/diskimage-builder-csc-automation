@@ -16,6 +16,8 @@ SHELL=/bin/bash
 
 0 9 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_fedora_atomic_dl.sh >> $HOME/log/c/fedora-atomic.log 2>&1
 0 10 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/c/ubuntu-18.04.log 2>&1
+0 11 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-19.04.sh >> $HOME/log/c/ubuntu-19.04.log 2>&1
+
 
 ######## ePouta production
 # m h  dom mon dow   command
@@ -31,6 +33,7 @@ SHELL=/bin/bash
 0 7 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7-cuda.sh >> $HOME/log/e/centos7-cuda.log 2>&1
 0 8 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-16.04-cuda.sh >> $HOME/log/e/ubuntu-16.04-cuda.log 2>&1
 0 9 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/e/ubuntu-18.04.log 2>&1
+0 10 2,17 * * source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_ubuntu-19.04.sh >> $HOME/log/e/ubuntu-19.04.log 2>&1
 
 ######## cPouta devel
 # m h  dom mon dow   command
@@ -47,3 +50,4 @@ SHELL=/bin/bash
 
 0 19 * * * source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_fedora_atomic_dl.sh >> $HOME/log/c-devel/fedora-atomic.log 2>&1
 0 20 * * * source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/c-devel/ubuntu-18.04.log 2>&1
+0 21 * * * source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-19.04.sh >> $HOME/log/c-devel/ubuntu-19.04.log 2>&1
