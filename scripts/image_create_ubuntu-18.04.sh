@@ -1,5 +1,5 @@
 #!/bin/bash --login
-UBUNTU_URL="http://cloud-images.ubuntu.com/bionic/current/"
+UBUNTU_URL="https://cloud-images.ubuntu.com/bionic/current/"
 DOWNLOAD_URL="$UBUNTU_URL/bionic-server-cloudimg-amd64.img"
 IMAGE_NAME="Ubuntu-18.04"
 OS_DISTRO_PROPERTY="ubuntu"
