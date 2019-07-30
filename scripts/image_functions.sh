@@ -72,8 +72,17 @@ function image_deploy() {
 }
 
 function delete_old_image_versions() {
+
+    OSIDCHARS=$(echo $OS_TENANT_ID|wc -c)
+    #uuid is 37 chars, nobody makes project names under 20 chars right?
+    if [ "$OSIDCHARS" -lt 20 ]; then
+        OS_REAL_TENANT_ID=$(openstack project show $OS_TENANT_ID -f value -c id)
+    else
+        OS_REAL_TENANT_ID=$OS_TENANT_ID
+    fi
+
     images=($(glance image-list --sort-key created_at --sort-dir desc\
-        --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME"\
+        --property owner="$OS_REAL_TENANT_ID" --property name="$IMAGE_NAME"\
         | grep "$IMAGE_NAME" | awk -F'|' '{print $2}'))
     images=${images:-}
 
