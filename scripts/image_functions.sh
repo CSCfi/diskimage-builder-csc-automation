@@ -72,8 +72,19 @@ function image_deploy() {
 }
 
 function delete_old_image_versions() {
+
+    OSIDCHARS=$(echo $OS_PROJECT_ID|wc -c)
+    if [ "$OSIDCHARS" -lt 20 ]; then
+        # For some of our old projects OS_PROJECT_ID is the same as project name
+        # In that case we want to use the name
+        OS_REAL_TENANT_ID=$OS_PROJECT_NAME
+    else
+        # When OS_PROJECT_ID is long, we want to use that
+        OS_REAL_TENANT_ID=$OS_PROJECT_ID
+    fi
+
     images=($(glance image-list --sort-key created_at --sort-dir desc\
-        --property owner="$OS_TENANT_ID" --property name="$IMAGE_NAME"\
+        --property owner="$OS_REAL_TENANT_ID" --property name="$IMAGE_NAME"\
         | grep "$IMAGE_NAME" | awk -F'|' '{print $2}'))
     images=${images:-}
 
