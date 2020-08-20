@@ -13,7 +13,7 @@ SHELL=/bin/bash
 
 0 7 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/c/ubuntu-18.04.log 2>&1
 0 8 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_fedora_atomic_dl.sh >> $HOME/log/c/fedora-atomic.log 2>&1
-0 10 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-20.04.sh >> $HOME/log/c/ubuntu-20.04.log 2>&1
+30 10 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_ubuntu-20.04.sh >> $HOME/log/c/ubuntu-20.04.log 2>&1
 #0 9 1,16 * * source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos8.sh >> $HOME/log/c/centos8.log 2>&1
 
 ######## ePouta production
