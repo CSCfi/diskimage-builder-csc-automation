@@ -36,10 +36,14 @@ function image_test() {
     if [ -z "${OS_DISTRO_PROPERTY:-}" ]; then
         OS_DISTRO_PROPERTY=""
     fi
+    if [ -z "${OS_TYPE_PROPERTY:-}" ]; then
+        OS_DISTRO_PROPERTY="linux"
+    fi
     glance image-create --name "$TMP_IMAGE_NAME" --container-format bare \
         --disk-format "$IMAGE_FORMAT" --visibility private --progress \
         --file "${IMAGE_NAME}.${IMAGE_FORMAT}" \
-        --property os_distro="$OS_DISTRO_PROPERTY"
+        --property os_distro="$OS_DISTRO_PROPERTY" \
+        --property os_type="$OS_TYPE_PROPERTY"
     echo "Creating test instance $TEST_INSTANCE_NAME"
     # create new test instance
     nova boot --flavor "$TEST_FLAVOR" --image "$TMP_IMAGE_NAME"\
