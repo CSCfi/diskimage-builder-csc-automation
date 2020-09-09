@@ -37,7 +37,7 @@ function image_test() {
         OS_DISTRO_PROPERTY=""
     fi
     if [ -z "${OS_TYPE_PROPERTY:-}" ]; then
-        OS_DISTRO_PROPERTY="linux"
+        OS_TYPE_PROPERTY="linux"
     fi
     glance image-create --name "$TMP_IMAGE_NAME" --container-format bare \
         --disk-format "$IMAGE_FORMAT" --visibility private --progress \
