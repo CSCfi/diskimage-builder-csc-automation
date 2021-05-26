@@ -25,7 +25,7 @@ function cleanup() {
 function image_create() {
 	# create cloud image with diskimage-builder
 	TMP_DIR=~/temp disk-image-create $DIB_OPTIONS -o "$IMAGE_NAME" \
-	    -p "$PACKAGES" -t "$IMAGE_FORMAT" $ELEMENTS
+	    --image-size "$IMAGE_SIZE" -p "$PACKAGES" -t "$IMAGE_FORMAT" $ELEMENTS
 }
 
 function image_download() {
