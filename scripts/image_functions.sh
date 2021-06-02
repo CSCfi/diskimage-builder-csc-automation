@@ -2,12 +2,15 @@
 export PYTHONIOENCODING
 
 function cleanup() {
-    echo "Deleting ${IMAGE_NAME}.d folders"
-    find . -maxdepth 5 -name "${IMAGE_NAME}.d" -type d -exec rm -rf {} +
-    echo "Deleting ${IMAGE_NAME}.qcow2 files"
-    find . -maxdepth 5 -name "${IMAGE_NAME}.qcow2" -type f -exec rm -f {} +
-    echo "Deleting ${IMAGE_NAME}.raw files"
-    find . -maxdepth 5 -name "${IMAGE_NAME}.raw" -type f -exec rm -f {} +
+    # make sure IMAGE_NAME is actually defined before running deletion commands
+    if [ ! -z "$IMAGE_NAME" ]; then
+        echo "Deleting ${IMAGE_NAME}.d folders"
+        find . -maxdepth 5 -name "${IMAGE_NAME}.d" -type d -exec rm -rf {} +
+        echo "Deleting ${IMAGE_NAME}.qcow2 files"
+        find . -maxdepth 5 -name "${IMAGE_NAME}.qcow2" -type f -exec rm -f {} +
+        echo "Deleting ${IMAGE_NAME}.raw files"
+        find . -maxdepth 5 -name "${IMAGE_NAME}.raw" -type f -exec rm -f {} +
+    fi
     # delete any orphaned temporary images using image_id
     echo "Deleting old images from OS"
     for id in $(glance image-list | grep "$TMP_IMAGE_NAME" | awk '{print $2}')
