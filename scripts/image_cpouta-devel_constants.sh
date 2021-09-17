@@ -1,5 +1,6 @@
 DIB_LOCAL_IMAGE=""
 DIB_OPTIONS="--no-tmpfs --qemu-img-options compat=0.10"
+FS_TYPE="xfs"
 IMAGE_SIZE="10"
 IMAGE_FORMAT="raw"
 IMAGE_VISIBILITY="$IMAGE_VISIBILITY"
