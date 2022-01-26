@@ -24,3 +24,11 @@ SHELL=/bin/bash
 0 11 * * * source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/c-devel/ubuntu-18.04.log 2>&1
 0 12 * * * source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-20.04.sh >> $HOME/log/c-devel/ubuntu-20.04.log 2>&1
 #0 17 * * * source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos8.sh >> $HOME/log/c-devel/centos8.log 2>&1
+
+######## ePouta devel
+# m h  dom mon dow   command
+0 13 * * * source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos7.sh >> $HOME/log/e-devel/centos7.log 2>&1
+0 14 * * * source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos7-cuda.sh >> $HOME/log/e-devel/centos7-cuda.log 2>&1
+0 15 * * * source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/e-devel/ubuntu-18.04.log 2>&1
+0 16 * * * source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_ubuntu-20.04.sh >> $HOME/log/e-devel/ubuntu-20.04.log 2>&1
+#0 18 * * * source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos8.sh >> $HOME/log/e-devel/centos8.log 2>&1
