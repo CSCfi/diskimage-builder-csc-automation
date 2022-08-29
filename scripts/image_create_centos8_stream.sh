@@ -1,6 +1,7 @@
 #!/bin/bash --login
 DISTRO_URL="https://cloud.centos.org/centos/8-stream/x86_64/images/"
-DOWNLOAD_URL="$DISTRO_URL/CentOS-Stream-GenericCloud-8-20220125.1.x86_64.qcow2"
+DISTRO_NAME=$(curl -s "$DISTRO_URL?C=M;O=D" | grep -oE "*CentOS-Stream-GenericCloud-8-[0-9]{8}.[0-9]{1}.x86_64.qcow2*" | head -n 1)
+DOWNLOAD_URL="$DISTRO_URL/$DISTRO_NAME"
 IMAGE_NAME="CentOS-8-Stream"
 OS_DISTRO_PROPERTY="centos"
 IMAGE_VISIBILITY="public"
