@@ -73,8 +73,13 @@ function image_deploy() {
     fi
     # rename new image
     echo "Renaming $TMP_IMAGE_NAME to $IMAGE_NAME"
+    DESCRIPTION=""
+    if [[ "$IMAGE_NAME" == "CentOS-7"* ]]; then
+      DESCRIPTION="All packages of this image were updated on $(date +%F). "
+    fi
+    DESCRIPTION="${DESCRIPTION}To find out which user to login with: ssh in as root."
     glance image-update --name "$IMAGE_NAME" \
-        --property description="All packages of this image were updated on $(date +%F). To find out which user to login with: ssh in as root." \
+        --property description="$DESCRIPTION" \
         --visibility "$IMAGE_VISIBILITY" \
         $(glance image-list | grep "$TMP_IMAGE_NAME" | cut -d '|' -f2)
 }
