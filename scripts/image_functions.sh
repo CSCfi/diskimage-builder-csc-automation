@@ -25,6 +25,18 @@ function cleanup() {
     done
 }
 
+function ok_cleanup() {
+    NOW=$(date -Is)
+    echo "IMGBUILDER_OUTPUT OK - $NOW $IMAGE_NAME built successfully"
+    cleanup
+}
+
+function fail_cleanup() {
+    NOW=$(date -Is)
+    echo "IMGBUILDER_OUTPUT FAIL - $NOW $IMAGE_NAME building failed"
+    cleanup
+}
+
 function image_create() {
 	# create cloud image with diskimage-builder
 	TMP_DIR=~/temp disk-image-create $DIB_OPTIONS -o "$IMAGE_NAME" \

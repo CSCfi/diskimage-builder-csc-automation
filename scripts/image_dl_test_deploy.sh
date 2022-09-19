@@ -19,7 +19,8 @@ fi
 source $(dirname $0)/image_functions.sh
 
 set -eu
-trap cleanup ERR EXIT
+trap ok_cleanup EXIT
+trap fail_cleanup ERR
 
 image_download "$1"
 image_test
