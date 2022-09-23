@@ -2,6 +2,10 @@
 export PYTHONIOENCODING
 
 function cleanup() {
+    if [ "$?" == "0" ]; then
+        NOW=$(date -Is)
+        echo "IMGBUILDER_OUTPUT OK - $NOW $IMAGE_NAME built successfully"
+    fi
     # make sure IMAGE_NAME is actually defined before running deletion commands
     if [ ! -z "$IMAGE_NAME" ]; then
         echo "Deleting ${IMAGE_NAME}.d folders"
@@ -25,16 +29,9 @@ function cleanup() {
     done
 }
 
-function ok_cleanup() {
+function err_handler() {
     NOW=$(date -Is)
-    echo "IMGBUILDER_OUTPUT OK - $NOW $IMAGE_NAME built successfully"
-    cleanup
-}
-
-function fail_cleanup() {
-    NOW=$(date -Is)
-    echo "IMGBUILDER_OUTPUT FAIL - $NOW $IMAGE_NAME building failed"
-    cleanup
+    echo "IMGBUILDER_OUTPUT FAIL - $NOW $IMAGE_NAME building failed - Error: line $(caller)"
 }
 
 function image_create() {
