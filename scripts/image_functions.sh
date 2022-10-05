@@ -4,7 +4,7 @@ export PYTHONIOENCODING
 LOGGED_ALREADY=0
 
 function cleanup() {
-    if [ "$LOGGED_ALREADY" == "0"]; then
+    if [ "$LOGGED_ALREADY" == "0" ]; then
         NOW=$(date -Is)
         if [ "$?" == "0" ]; then
             echo "IMGBUILDER_OUTPUT OK - $NOW $IMAGE_NAME built successfully"
