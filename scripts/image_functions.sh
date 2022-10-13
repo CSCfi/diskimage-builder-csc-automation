@@ -1,7 +1,19 @@
 #!/bin/bash -lv
 export PYTHONIOENCODING
 
+LOGGED_ALREADY=0
+
 function cleanup() {
+    EXIT_CODE=$?
+    if [ "$LOGGED_ALREADY" == "0" ]; then
+        NOW=$(date -Is)
+        if [ "$EXIT_CODE" == "0" ]; then
+            echo "IMGBUILDER_OUTPUT OK - $NOW $IMAGE_NAME built successfully"
+        else
+            echo "IMGBUILDER_OUTPUT FAIL - $NOW $IMAGE_NAME building failed - Error: line $(caller)"
+        fi
+        LOGGED_ALREADY=1
+    fi
     # make sure IMAGE_NAME is actually defined before running deletion commands
     if [ ! -z "$IMAGE_NAME" ]; then
         echo "Deleting ${IMAGE_NAME}.d folders"
