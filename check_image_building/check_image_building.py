@@ -14,7 +14,7 @@ def main():
     parser.add_argument('-c', '--conf-file', dest='conf_file', help='Path to the configuration file', required=True)
     args = parser.parse_args()
     # does the log file exist?
-    if os.path.exists(args.conf_file) == False:
+    if not os.path.exists(args.conf_file):
         print("CRITICAL - Check configuration file " + args.conf_file + " does not exist")
         sys.exit(NAGIOS_STATE_CRITICAL)
     NAGIOS_STATE = NAGIOS_STATE_OK
@@ -24,7 +24,7 @@ def main():
         for environment in config["environments"]:
             for image in environment["images"]:
                 log_file_path = config["base_path"] + "/" + environment["name"] + "/" + image + ".log"
-                if os.path.exists(log_file_path) == False:
+                if not os.path.exists(log_file_path):
                     print("CRITICAL - Log file " + log_file_path + " does not exist")
                     sys.exit(NAGIOS_STATE_CRITICAL)
                 with open(log_file_path, "r") as log_file:
@@ -39,7 +39,7 @@ def main():
                     # line is the last line filtered out
                     output_str = line.split(" ", 1)[1]
                     # add the outcome to the output message
-                    NAGIOS_OUTPUT = NAGIOS_OUTPUT + output_str
+                    NAGIOS_OUTPUT += output_str
                     # check the outcome
                     if output_str.startswith("FAIL"):
                         NAGIOS_STATE = NAGIOS_STATE_CRITICAL
