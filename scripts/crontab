@@ -9,9 +9,9 @@ SHELL=/bin/bash
 
 ######## cPouta production
 #  m  h  dom  mon  dow   command
-   0  0  1,16 *    *     source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh >> $HOME/log/c/centos7.log 2>&1
+#  0  0  1,16 *    *     source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7.sh >> $HOME/log/c/centos7.log 2>&1
 # 15  0  1,16 *    *     Reserved for CentOS-7 building
-  30  0  1,16 *    *     source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7-cuda.sh >> $HOME/log/c/centos7-cuda.log 2>&1
+# 30  0  1,16 *    *     source $HOME/bin/openrc_cpouta_prod_v3.sh; $HOME/diskimage-builder-scripts.cpouta/scripts/image_create_centos7-cuda.sh >> $HOME/log/c/centos7-cuda.log 2>&1
 # 45  0  1,16 *    *     Reserved for CentOS-7-cuda building
 #  0  1  1,16 *    *     Reserved for CentOS-7-cuda building
 # 15  1  1,16 *    *     Reserved for CentOS-7-cuda building
@@ -28,9 +28,9 @@ SHELL=/bin/bash
 
 ######## ePouta production
 #  m  h  dom  mon  dow   command
-   0  4  2,17 *    *     source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7.sh >> $HOME/log/e/centos7.log 2>&1
+#  0  4  2,17 *    *     source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7.sh >> $HOME/log/e/centos7.log 2>&1
 # 15  4  2,17 *    *     Reserved for CentOS-7 building
-  30  4  2,17 *    *     source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7-cuda.sh >> $HOME/log/e/centos7-cuda.log 2>&1
+# 30  4  2,17 *    *     source $HOME/bin/openrc_epouta_prod_v3.sh; $HOME/diskimage-builder-scripts.epouta/scripts/image_create_centos7-cuda.sh >> $HOME/log/e/centos7-cuda.log 2>&1
 # 45  4  2,17 *    *     Reserved for CentOS-7-cuda building
 #  0  5  2,17 *    *     Reserved for CentOS-7-cuda building
 # 15  5  2,17 *    *     Reserved for CentOS-7-cuda building
@@ -85,9 +85,9 @@ SHELL=/bin/bash
 
 ######## cPouta development
 #  m  h  dom  mon  dow   command
-   0 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos7.sh >> $HOME/log/c-devel/centos7.log 2>&1
+#  0 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos7.sh >> $HOME/log/c-devel/centos7.log 2>&1
 # 15 16  *    *    *     Reserved for CentOS-7 building
-  30 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos7-cuda.sh >> $HOME/log/c-devel/centos7-cuda.log 2>&1
+# 30 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos7-cuda.sh >> $HOME/log/c-devel/centos7-cuda.log 2>&1
 # 45 16  *    *    *     Reserved for CentOS-7-cuda building
 #  0 17  *    *    *     Reserved for CentOS-7-cuda building
 # 15 17  *    *    *     Reserved for CentOS-7-cuda building
@@ -104,9 +104,9 @@ SHELL=/bin/bash
 
 ######## ePouta development
 #  m  h  dom  mon  dow   command
-   0 20  *    *    *     source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos7.sh >> $HOME/log/e-devel/centos7.log 2>&1
+#  0 20  *    *    *     source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos7.sh >> $HOME/log/e-devel/centos7.log 2>&1
 # 15 20  *    *    *     Reserved for CentOS-7 building
-  30 20  *    *    *     source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos7-cuda.sh >> $HOME/log/e-devel/centos7-cuda.log 2>&1
+# 30 20  *    *    *     source $HOME/bin/openrc_epouta_devel_v3.sh; $HOME/diskimage-builder-scripts.epouta-devel/scripts/image_create_centos7-cuda.sh >> $HOME/log/e-devel/centos7-cuda.log 2>&1
 # 45 20  *    *    *     Reserved for CentOS-7-cuda building
 #  0 21  *    *    *     Reserved for CentOS-7-cuda building
 # 15 21  *    *    *     Reserved for CentOS-7-cuda building
