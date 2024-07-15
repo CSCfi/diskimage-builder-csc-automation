@@ -1,18 +1,17 @@
 {
-    "base_path" : "/home/imgbuild/log",
-    "environments" : [
-        {
-            "name" : "e",
-            "images" : [
-                "ubuntu-18.04",
-                "ubuntu-20.04",
-                "ubuntu-22.04",
-                "ubuntu-24.04",
-                "centos8_stream",
-                "centos9_stream",
-		"alma8",
-		"alma9"
-            ]
-        }
-    ]
+  "base_path": "/home/imgbuild/log",
+  "environments": [
+    {
+      "name": "e",
+      "images": [
+        "ubuntu-18.04",
+        "ubuntu-20.04",
+        "ubuntu-22.04",
+        "ubuntu-24.04",
+        "centos9_stream",
+        "alma8",
+        "alma9"
+      ]
+    }
+  ]
 }

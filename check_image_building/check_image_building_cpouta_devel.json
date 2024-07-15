@@ -8,7 +8,6 @@
         "ubuntu-20.04",
         "ubuntu-22.04",
         "ubuntu-24.04",
-        "centos8_stream",
         "centos9_stream",
         "alma8",
         "alma9"
