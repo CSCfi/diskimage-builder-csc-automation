@@ -2,7 +2,7 @@
   "base_path": "/home/imgbuild/log",
   "environments": [
     {
-      "name": "c-devel",
+      "name": "e-devel",
       "images": [
         "ubuntu-18.04",
         "ubuntu-20.04",
