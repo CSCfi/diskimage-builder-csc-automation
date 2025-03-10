@@ -1,0 +1,12 @@
+{
+  "base_path": "/home/imgbuild/log",
+  "environments": [
+    {
+      "name": "e-devb",
+      "images": [
+        "ubuntu-24.04",
+        "alma9"
+      ]
+    }
+  ]
+}
