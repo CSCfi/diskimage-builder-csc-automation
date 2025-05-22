@@ -85,20 +85,20 @@ SHELL=/bin/bash
 
 ######## cPouta development
 #  m  h  dom  mon  dow   command
-#  0 16  *    *    *     Free slot
-# 15 16  *    *    *     Free slot
-# 30 16  *    *    *     Free slot
-# 45 16  *    *    *     Free slot
-#  0 17  *    *    *     Free slot
-# 15 17  *    *    *     Free slot
-  30 17  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/c-devel/ubuntu-18.04.log 2>&1
-  45 17  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-20.04.sh >> $HOME/log/c-devel/ubuntu-20.04.log 2>&1
-   0 18  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-22.04.sh >> $HOME/log/c-devel/ubuntu-22.04.log 2>&1
-# 15 18  *    *    *     Free slot
-  30 18  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos9_stream.sh >> $HOME/log/c-devel/centos9_stream.log 2>&1
-  45 18  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_alma8.sh >> $HOME/log/c-devel/alma8.log 2>&1
-   0 19  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_alma9.sh >> $HOME/log/c-devel/alma9.log 2>&1
-  15 19  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-24.04.sh >> $HOME/log/c-devel/ubuntu-24.04.log 2>&1
+   0 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-18.04.sh >> $HOME/log/c-devel/ubuntu-18.04.log 2>&1
+  15 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-20.04.sh >> $HOME/log/c-devel/ubuntu-20.04.log 2>&1
+  30 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-22.04.sh >> $HOME/log/c-devel/ubuntu-22.04.log 2>&1
+  45 16  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_centos9_stream.sh >> $HOME/log/c-devel/centos9_stream.log 2>&1
+   0 17  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_alma8.sh >> $HOME/log/c-devel/alma8.log 2>&1
+  15 17  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_alma9.sh >> $HOME/log/c-devel/alma9.log 2>&1
+  30 17  *    *    *     source $HOME/bin/openrc_cpouta_devel_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devel/scripts/image_create_ubuntu-24.04.sh >> $HOME/log/c-devel/ubuntu-24.04.log 2>&1
+# 45 17  *    *    *     Free slot
+   0 18  *    *    *     source $HOME/bin/openrc_cpouta_devb_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devb/scripts/image_create_alma9.sh >> $HOME/log/c-devb/alma9.log 2>&1
+  15 18  *    *    *     source $HOME/bin/openrc_cpouta_devb_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devb/scripts/image_create_ubuntu-24.04.sh >> $HOME/log/c-devb/ubuntu-24.04.log 2>&1
+# 30 18  *    *    *     Free slot
+  45 18  *    *    *     source $HOME/bin/openrc_cpouta_devc_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devc/scripts/image_create_alma9.sh >> $HOME/log/c-devc/alma9.log 2>&1
+   0 19  *    *    *     source $HOME/bin/openrc_cpouta_devc_v3.sh; $HOME/diskimage-builder-scripts.cpouta-devc/scripts/image_create_ubuntu-24.04.sh >> $HOME/log/c-devc/ubuntu-24.04.log 2>&1
+# 15 19  *    *    *     Free slot
 # 30 19  *    *    *     Free slot
 # 45 19  *    *    *     Free slot
 
