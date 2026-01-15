@@ -1,5 +1,9 @@
 # CSC documentation for Diskimage-Builder
 
+## Deprecation note
+
+This project has been deprecated by its maintainers in favor of a new tool [Imagebuilder](https://github.com/CSCfi/imagebuilder). Be aware that code is unmaintained.
+
 See docs for documentation.
 
 ## Use mkdocs
